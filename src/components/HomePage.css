@@ -1,0 +1,37 @@
+.homeHeading {
+    font-size: 4em !important;
+    font-weight: normal !important;
+    margin-bottom: 0 !important;
+    margin-top: 3em !important;
+}
+
+.homeHeading-m {
+    font-size: 2em !important;
+    font-weight: normal !important;
+    margin-bottom: 0 !important;
+    margin-top: 1.5em !important;
+}
+
+
+.homeSubheading {
+    font-size: 1.7em !important;
+    font-weight: normal !important;
+    margin-top: 1.5em !important;
+}
+
+.homeSubheading-m {
+    font-size: 1.5em !important;
+    font-weight: normal !important;
+    margin-top: 0.5em !important;
+}
+
+.heading {
+    min-height: 700px !important;
+    padding: 1em 0em !important;
+    background-color: #000a64 !important;
+}
+
+.footer {
+    padding: 5em 0em !important;
+    background-color: #000a64 !important
+}
