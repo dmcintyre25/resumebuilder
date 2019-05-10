@@ -10,7 +10,7 @@ import resume from '../media/resume.png';
 
 const HomePageContent = () => {
     return (
-        <Segment inverted style={{ padding: '8em 0em' }} vertical>
+        <Segment className='homepageSection' vertical>
             <Grid container stackable verticalAlign='middle'>
                 <Grid.Row>
                     <Grid.Column width={8}>
@@ -37,7 +37,7 @@ const HomePageContent = () => {
                     </Grid.Column>
                 </Grid.Row>
             </Grid>
-        </Segment>
+        </Segment >
     );
 }
 

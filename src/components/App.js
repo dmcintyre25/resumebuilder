@@ -1,26 +1,35 @@
 import React from 'react';
-import { Container, Segment } from 'semantic-ui-react';
+import { Segment, Responsive } from 'semantic-ui-react';
 import NavBar from './NavBar';
 import Banner from './Banner';
 import HomePageContent from './HomePageContent';
-import HomePageLayout from './HomePageLayout';
 import Footer from './Footer';
 
+const getWidth = () => {
+    const isSSR = typeof window === 'undefined'
+
+    return isSSR ? Responsive.onlyTablet.minWidth : window.innerWidth
+}
 
 const App = () => {
     return (
-        <Container fluid>
+
+        <Responsive getWidth={getWidth} minWidth={Responsive.onlyTablet.minWidth}>
             <Segment
                 textAlign='center'
                 className='heading'
                 vertical
+                inverted
             >
                 <NavBar />
                 <Banner />
-                <HomePageContent />
-                <Footer />
             </Segment>
-        </Container>
+            <HomePageContent />
+            <Footer />
+
+        </Responsive>
+
+
     );
 }
 

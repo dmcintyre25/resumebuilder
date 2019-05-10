@@ -1,8 +1,8 @@
 import React from 'react';
 import {
     Menu,
-    Input,
-    Button
+    Button,
+    Icon
 } from 'semantic-ui-react';
 
 
@@ -16,10 +16,20 @@ class NavBar extends React.Component {
     render() {
         const { activeItem } = this.state
         return (
-            <Menu inverted>
-                <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick} />
+            <Menu
+                inverted
+                pointing
+                size='large'
+            >
+                <Menu.Item>
+                    <Icon name="briefcase" />
+                </Menu.Item>
                 <Menu.Item
-                    name='Features'
+                    name='home'
+                    active={activeItem === 'home'}
+                    onClick={this.handleItemClick} />
+                <Menu.Item
+                    name='features'
                     active={activeItem === 'features'}
                     onClick={this.handleItemClick}
                 />

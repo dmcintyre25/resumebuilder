@@ -26,12 +26,15 @@
 }
 
 .heading {
-    min-height: 700px !important;
-    padding: 1em 0em !important;
-    background-color: #000a64 !important;
+    min-height: 500px !important;
+    /* padding: 1em 0em !important; */
+    /* background-color: #000a64 !important;npm */
 }
 
 .footer {
     padding: 5em 0em !important;
-    background-color: #000a64 !important
+}
+
+.homepageSection {
+    padding: 8em 0em !important;
 }
