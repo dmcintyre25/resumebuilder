@@ -20,6 +20,8 @@ import GoogleAuth from './GoogleAuth';
 import './HomePage.css';
 import person from '../media/person.png';
 import person2 from '../media/person2.png';
+import resume from '../media/resume.png';
+import resume2 from '../media/resume2.png';
 
 const getWidth = () => {
     const isSSR = typeof window === 'undefined'
@@ -154,7 +156,7 @@ const HomepageLayout = () => (
               </p>
                     </Grid.Column>
                     <Grid.Column floated='right' width={6}>
-                        <Image bordered rounded size='large' src='/images/wireframe/white-image.png' />
+                        <Image bordered rounded size='medium' src={resume} />
                     </Grid.Column>
                 </Grid.Row>
                 <Grid.Row>
@@ -178,7 +180,7 @@ const HomepageLayout = () => (
                             "I shouldn't have gone with their competitor."
               </Header>
                         <p style={{ fontSize: '1.33em' }}>
-                            <Image avatar src='/images/avatar/large/nan.jpg' />
+                            <i aria-hidden="true" class="teal users circular inverted icon"></i>
                             <b>Nan</b> Chief Fun Officer Acme Toys
               </p>
                     </Grid.Column>

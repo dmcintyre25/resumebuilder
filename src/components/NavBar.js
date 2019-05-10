@@ -1,5 +1,11 @@
 import React from 'react';
-import { Menu } from 'semantic-ui-react';
+import {
+    Menu,
+    Input,
+    Button
+} from 'semantic-ui-react';
+
+
 
 class NavBar extends React.Component {
 
@@ -8,35 +14,29 @@ class NavBar extends React.Component {
     handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
     render() {
-        const { activeItem } = this.state;
+        const { activeItem } = this.state
         return (
-            <Menu>
+            <Menu inverted>
+                <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick} />
                 <Menu.Item
-                    name='resume'
-                    active={activeItem === 'resume'}
+                    name='Features'
+                    active={activeItem === 'features'}
                     onClick={this.handleItemClick}
-                >
-                    Resume Builder
-                </Menu.Item>
-
-                <Menu.Item name='features' active={activeItem === 'features'} onClick={this.handleItemClick}>
-                    Features
-                </Menu.Item>
-
+                />
                 <Menu.Item
                     name='pricing'
                     active={activeItem === 'pricing'}
                     onClick={this.handleItemClick}
-                >
-                    Pricing
-                </Menu.Item>
-                <Menu.Item
-                    name='login'
-                    active={activeItem === 'login'}
-                    onClick={this.handleItemClick}
-                >
-                    Login
-                </Menu.Item>
+                />
+                <Menu.Menu position='right'>
+                    <Menu.Item>
+                        <Button color='grey'>Login</Button>
+                    </Menu.Item>
+                    <Menu.Item>
+                        <Button color='blue'>Sign Up</Button>
+                    </Menu.Item>
+
+                </Menu.Menu>
             </Menu>
         );
     }
