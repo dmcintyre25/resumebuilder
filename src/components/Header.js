@@ -1,7 +1,7 @@
 import React from 'react';
-import { Segment, Responsive } from 'semantic-ui-react';
-import Banner from './Banner';
-import HomePageContent from './HomePageContent';
+import NavBar from './NavBar';
+import { Responsive, Segment } from 'semantic-ui-react';
+
 
 const getWidth = () => {
     const isSSR = typeof window === 'undefined'
@@ -9,7 +9,7 @@ const getWidth = () => {
     return isSSR ? Responsive.onlyTablet.minWidth : window.innerWidth
 }
 
-const HomePage = () => {
+const Header = () => {
     return (
         <Responsive getWidth={getWidth} minWidth={Responsive.onlyTablet.minWidth}>
             <Segment
@@ -17,12 +17,10 @@ const HomePage = () => {
                 vertical
                 inverted
             >
-                <Banner />
+                <NavBar />
             </Segment>
-            <HomePageContent />
-
         </Responsive>
     );
 }
 
-export default HomePage;
+export default Header;

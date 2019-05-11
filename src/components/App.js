@@ -1,34 +1,31 @@
 import React from 'react';
-import { Segment, Responsive } from 'semantic-ui-react';
-import NavBar from './NavBar';
-import Banner from './Banner';
-import HomePageContent from './HomePageContent';
+import HomePage from './HomePage';
+import Header from './Header';
 import Footer from './Footer';
+import LoginPage from './LoginPage';
+import FeaturePage from './FeaturePage';
+import PricingPage from './PricingPage';
+import Dashboard from './Dashboard';
+import { BrowserRouter, Route } from 'react-router-dom';
+import './HomePage.css';
 
-const getWidth = () => {
-    const isSSR = typeof window === 'undefined'
 
-    return isSSR ? Responsive.onlyTablet.minWidth : window.innerWidth
-}
 
 const App = () => {
     return (
-
-        <Responsive getWidth={getWidth} minWidth={Responsive.onlyTablet.minWidth}>
-            <Segment
-                textAlign='center'
-                className='heading'
-                vertical
-                inverted
-            >
-                <NavBar />
-                <Banner />
-            </Segment>
-            <HomePageContent />
-            <Footer />
-
-        </Responsive>
-
+        <div>
+            <BrowserRouter>
+                <div>
+                    <Header />
+                    <Route path="/" exact component={HomePage} />
+                    <Route path="/features" component={FeaturePage} />
+                    <Route path="/pricing" component={PricingPage} />
+                    <Route path="/login" component={LoginPage} />
+                    <Route path="/dashboard" component={Dashboard} />
+                    <Footer />
+                </div>
+            </BrowserRouter>
+        </div>
 
     );
 }

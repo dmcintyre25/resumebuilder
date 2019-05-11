@@ -38,3 +38,12 @@
 .homepageSection {
     padding: 8em 0em !important;
 }
+
+.pageContainer {
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.loginContainer {
+    width: 50% !important;
+}
