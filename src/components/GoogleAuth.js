@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+//import { Redirect } from 'react-router-dom';
 import { signIn, signOut } from '../actions';
 
 class GoogleAuth extends React.Component {
@@ -28,16 +29,20 @@ class GoogleAuth extends React.Component {
 
     onSignInClick = () => {
         this.auth.signIn();
+
     };
 
     onSignOutClick = () => {
         this.auth.signOut();
     };
 
+
+
     renderAuthButton() {
         if (this.props.isSignedIn === null) {
             return null;
         } else if (this.props.isSignedIn) {
+            // return <Redirect to='/dashboard' />;
             return (
                 <button onClick={this.onSignOutClick} className="ui red google button">
                     <i className="google icon" />
@@ -60,7 +65,7 @@ class GoogleAuth extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    return { isSignedIn: state.auth.isSignedIn };
+    return { isSignedIn: state.auth.isSignedIn, auth: state.auth };
 };
 
 export default connect(mapStateToProps, { signIn, signOut })(GoogleAuth);

@@ -47,3 +47,11 @@
 .loginContainer {
     width: 50% !important;
 }
+
+.resumeIcon {
+    color: steelblue;
+}
+
+.dashboardNav {
+    background-color: rgb(75, 75, 75) !important;
+}
