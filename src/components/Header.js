@@ -2,6 +2,7 @@ import React from 'react';
 import NavBar from './NavBar';
 import { connect } from 'react-redux';
 import { Responsive, Segment } from 'semantic-ui-react';
+import { signIn, signOut } from '../actions';
 
 
 const getWidth = () => {
@@ -46,7 +47,7 @@ class Header extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    return { isSignedIn: state.auth.isSignedIn };
+    return { isSignedIn: state.auth.isSignedIn, auth: state.auth };
 }
 
-export default connect(mapStateToProps, null)(Header);
+export default connect(mapStateToProps, { signIn, signOut })(Header);

@@ -16,6 +16,7 @@ class NavBar extends React.Component {
 
     onSignOutClick = () => {
         this.props.signOut();
+        this.auth.signOut();
     };
 
     handleItemClick = (e, { name }) => this.setState({ activeItem: name })
