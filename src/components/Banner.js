@@ -32,10 +32,12 @@ const Banner = () => {
                         inverted
                         className='homeSubheading'
                     />
-                    <Button size='huge'>
-                        <Link to="/register">Get Started</Link>
+                    <Link to="/register">
+                        <Button size='huge'>
+                            Get Started
                         <Icon name='right arrow' />
-                    </Button>
+                        </Button>
+                    </Link>
                 </Grid.Column>
                 <Grid.Column width={4}>
                     <Image bordered rounded size='large' src={person2} />

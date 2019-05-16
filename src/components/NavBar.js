@@ -31,7 +31,6 @@ class NavBar extends React.Component {
     onAuthChange = (isSignedIn) => {
         if (isSignedIn) {
             this.props.signIn(this.auth.currentUser.get().getId());
-            console.log(this.auth.currentUser.get().getBasicProfile().getName());
             this.setState({ name: this.auth.currentUser.get().getBasicProfile().getName() });
         } else {
             this.props.signOut();
@@ -143,7 +142,7 @@ class NavBar extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    return { isSignedIn: state.auth.isSignedIn, auth: state.auth };
+    return { isSignedIn: state.auth.isSignedIn, userId: state.auth.userId };
 }
 
 export default connect(mapStateToProps, { signIn, signOut })(NavBar);
