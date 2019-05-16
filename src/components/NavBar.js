@@ -12,10 +12,33 @@ import { signIn, signOut } from '../actions';
 
 class NavBar extends React.Component {
 
-    state = {}
+    state = { name: '' }
+
+    componentDidMount() {
+        window.gapi.load('client:auth2', () => {
+            window.gapi.client.init({
+                clientId: '756987404347-a3i1shq28f8s79pf0cepn587gdsf52h7.apps.googleusercontent.com',
+                scope: 'profile email'
+            }).then(() => {
+                this.auth = window.gapi.auth2.getAuthInstance();
+                this.onAuthChange(this.auth.isSignedIn.get());
+                this.auth.isSignedIn.listen(this.onAuthChange);
+            });
+        });
+    }
+
+
+    onAuthChange = (isSignedIn) => {
+        if (isSignedIn) {
+            this.props.signIn(this.auth.currentUser.get().getId());
+            console.log(this.auth.currentUser.get().getBasicProfile().getName());
+            this.setState({ name: this.auth.currentUser.get().getBasicProfile().getName() });
+        } else {
+            this.props.signOut();
+        }
+    };
 
     onSignOutClick = () => {
-        this.props.signOut();
         this.auth.signOut();
     };
 
@@ -98,6 +121,9 @@ class NavBar extends React.Component {
                         Create
                     </Menu.Item>
                     <Menu.Menu position='right'>
+                        <Menu.Item>
+                            Welcome {this.state.name}
+                        </Menu.Item>
                         <Menu.Item>
                             <Button color='red' onClick={this.onSignOutClick} className="ui red google button">Logout</Button>
                         </Menu.Item>

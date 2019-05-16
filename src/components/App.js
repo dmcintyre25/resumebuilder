@@ -3,6 +3,7 @@ import HomePage from './HomePage';
 import Header from './Header';
 import Footer from './Footer';
 import LoginPage from './LoginPage';
+import RegisterPage from './RegisterPage';
 import FeaturePage from './FeaturePage';
 import PricingPage from './PricingPage';
 import ResumeCreate from './resume/ResumeCreate';
@@ -23,6 +24,7 @@ const App = () => {
                     <Route path="/features" component={FeaturePage} />
                     <Route path="/pricing" component={PricingPage} />
                     <Route path="/login" component={LoginPage} />
+                    <Route path="/register" component={RegisterPage} />
                     <Route path="/dashboard" component={Dashboard} />
                     <Route path="/resumes" exact component={ResumeList} />
                     <Route path="/resumes/create" exact component={ResumeCreate} />

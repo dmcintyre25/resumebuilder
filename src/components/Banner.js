@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
     Grid,
     Header,
@@ -31,8 +32,8 @@ const Banner = () => {
                         inverted
                         className='homeSubheading'
                     />
-                    <Button primary size='huge'>
-                        Get Started
+                    <Button size='huge'>
+                        <Link to="/register">Get Started</Link>
                         <Icon name='right arrow' />
                     </Button>
                 </Grid.Column>

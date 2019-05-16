@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-//import { Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { signIn, signOut } from '../actions';
 
 class GoogleAuth extends React.Component {
@@ -10,7 +10,7 @@ class GoogleAuth extends React.Component {
         window.gapi.load('client:auth2', () => {
             window.gapi.client.init({
                 clientId: '756987404347-a3i1shq28f8s79pf0cepn587gdsf52h7.apps.googleusercontent.com',
-                scope: 'email'
+                scope: 'profile email'
             }).then(() => {
                 this.auth = window.gapi.auth2.getAuthInstance();
                 this.onAuthChange(this.auth.isSignedIn.get());
@@ -42,13 +42,13 @@ class GoogleAuth extends React.Component {
         if (this.props.isSignedIn === null) {
             return null;
         } else if (this.props.isSignedIn) {
-            // return <Redirect to='/dashboard' />;
-            return (
-                <button onClick={this.onSignOutClick} className="ui red google button">
-                    <i className="google icon" />
-                    Sign Out
-                </button>
-            );
+            return <Redirect to='/dashboard' />;
+            // return (
+            //     <button onClick={this.onSignOutClick} className="ui red google button">
+            //         <i className="google icon" />
+            //         Sign Out
+            //     </button>
+            // );
         } else {
             return (
                 <button onClick={this.onSignInClick} className="ui green google button">
