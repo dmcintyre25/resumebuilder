@@ -30,15 +30,15 @@ const ResumeSteps = () => {
                             <Header as='h2' style={{ fontSize: '2em' }}>
                                 Step 1 <Icon name="info" color='blue' />
                             </Header>
-                            <p>Upload your resume and/or information.</p>
+                            <p style={{ fontSize: '1.33em' }}>Upload your resume and/or information.</p>
                             <Header as='h2' style={{ fontSize: '2em' }}>
                                 Step 2 <Icon name="file alternate" color='blue' />
                             </Header>
-                            <p>Pick a resume template.</p>
+                            <p style={{ fontSize: '1.33em' }}>Pick a resume template.</p>
                             <Header as='h2' style={{ fontSize: '2em' }}>
                                 Step 3 <Icon name="download" color='blue' />
                             </Header>
-                            <p>Print or download your professional resume.</p>
+                            <p style={{ fontSize: '1.33em' }}>Print or download your professional resume.</p>
                         </Grid.Column>
                     </Grid.Column>
                 </Grid.Row>

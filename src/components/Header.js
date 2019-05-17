@@ -39,9 +39,11 @@ class Header extends React.Component {
 
     render() {
         return (
-            <Responsive getWidth={getWidth} minWidth={Responsive.onlyTablet.minWidth}>
-                {this.renderHeader()}
-            </Responsive>
+            <header>
+                <Responsive getWidth={getWidth} minWidth={Responsive.onlyTablet.minWidth}>
+                    {this.renderHeader()}
+                </Responsive>
+            </header>
         );
     }
 }

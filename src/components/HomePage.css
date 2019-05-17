@@ -1,3 +1,24 @@
+html, body {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+#root {
+    min-height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+}
+
+main {
+    flex-grow: 1 !important;
+}
+
+header, main, footer {
+    flex-shrink: 0 !important;
+}
+
+
 .homeHeading {
     font-size: 4em !important;
     font-weight: normal !important;

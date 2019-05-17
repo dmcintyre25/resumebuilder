@@ -16,22 +16,23 @@ import './HomePage.css';
 
 const App = () => {
     return (
-        <div>
-            <BrowserRouter>
-                <div>
-                    <Header />
-                    <Route path="/" exact component={HomePage} />
-                    <Route path="/features" component={FeaturePage} />
-                    <Route path="/pricing" component={PricingPage} />
-                    <Route path="/login" component={LoginPage} />
-                    <Route path="/register" component={RegisterPage} />
-                    <Route path="/dashboard" component={Dashboard} />
-                    <Route path="/resumes" exact component={ResumeList} />
-                    <Route path="/resumes/create" exact component={ResumeCreate} />
-                    <Footer />
-                </div>
-            </BrowserRouter>
-        </div>
+
+        <BrowserRouter>
+            <Header />
+            <main>
+                <Route path="/" exact component={HomePage} />
+                <Route path="/features" component={FeaturePage} />
+                <Route path="/pricing" component={PricingPage} />
+                <Route path="/login" component={LoginPage} />
+                <Route path="/register" component={RegisterPage} />
+                <Route path="/dashboard" component={Dashboard} />
+                <Route path="/resumes" exact component={ResumeList} />
+                <Route path="/resumes/create" exact component={ResumeCreate} />
+            </main>
+            <Footer />
+
+        </BrowserRouter>
+
 
     );
 }
