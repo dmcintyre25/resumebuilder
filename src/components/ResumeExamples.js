@@ -9,7 +9,7 @@ import resume from '../media/resume.png';
 
 const ResumeExamples = () => {
     return (
-        <Segment className='homepageSection' vertical centered>
+        <Segment className='homepageSection' vertical>
             <Grid container stackable centered verticalAlign='middle' columns={4}>
                 <Grid.Row centered>
                     <Header as='h3' style={{ fontSize: '2em' }}>

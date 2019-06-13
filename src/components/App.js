@@ -9,10 +9,18 @@ import PricingPage from './PricingPage';
 import ResumeCreate from './resume/ResumeCreate';
 import ResumeList from './resume/ResumeList';
 import Dashboard from './Dashboard';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Redirect } from 'react-router-dom';
 import './HomePage.css';
 
 
+const PrivateRoute = ({ component: Component, ...rest }) => (
+
+    <Route {...rest} render={(props) => (
+        this.props.isSignedIn === true
+            ? <Component {...props} />
+            : <Redirect to='/login' />
+    )} />
+)
 
 const App = () => {
     return (
@@ -25,9 +33,9 @@ const App = () => {
                 <Route path="/pricing" component={PricingPage} />
                 <Route path="/login" component={LoginPage} />
                 <Route path="/register" component={RegisterPage} />
-                <Route path="/dashboard" component={Dashboard} />
-                <Route path="/resumes" exact component={ResumeList} />
-                <Route path="/resumes/create" exact component={ResumeCreate} />
+                <PrivateRoute path="/dashboard" component={Dashboard} />
+                <PrivateRoute path="/resumes" exact component={ResumeList} />
+                <PrivateRoute path="/resumes/create" exact component={ResumeCreate} />
             </main>
             <Footer />
 

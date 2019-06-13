@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import {
     Menu,
     Button,
@@ -34,6 +34,7 @@ class NavBar extends React.Component {
             this.setState({ name: this.auth.currentUser.get().getBasicProfile().getName() });
         } else {
             this.props.signOut();
+            this.props.history.push("/");
         }
     };
 
@@ -145,4 +146,4 @@ const mapStateToProps = (state) => {
     return { isSignedIn: state.auth.isSignedIn, userId: state.auth.userId };
 }
 
-export default connect(mapStateToProps, { signIn, signOut })(NavBar);
+export default connect(mapStateToProps, { signIn, signOut })(withRouter(NavBar));
