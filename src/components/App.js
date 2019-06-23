@@ -12,11 +12,13 @@ import Dashboard from './Dashboard';
 import { BrowserRouter, Route, Redirect } from 'react-router-dom';
 import './HomePage.css';
 
+import { connect } from 'react-redux';
+
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
 
     <Route {...rest} render={(props) => (
-        this.props.isSignedIn === true
+        props.isSignedIn === true
             ? <Component {...props} />
             : <Redirect to='/login' />
     )} />
@@ -45,4 +47,10 @@ const App = () => {
     );
 }
 
-export default App;
+//export default App;
+
+const mapStateToProps = (state) => {
+    return { isSignedIn: state.auth.isSignedIn };
+};
+
+export default connect(mapStateToProps)(App);
