@@ -6,6 +6,9 @@
 .pnp.js
 /semantic
 
+# vs code
+.vscode/
+
 # testing
 /coverage
 
