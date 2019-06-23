@@ -18,33 +18,43 @@ import { connect } from 'react-redux';
 const PrivateRoute = ({ component: Component, ...rest }) => (
 
     <Route {...rest} render={(props) => (
-        props.isSignedIn === true
+        rest.isSignedIn === true
             ? <Component {...props} />
             : <Redirect to='/login' />
     )} />
 )
 
-const App = () => {
-    return (
+class App extends React.Component {
 
-        <BrowserRouter>
-            <Header />
-            <main>
-                <Route path="/" exact component={HomePage} />
-                <Route path="/features" component={FeaturePage} />
-                <Route path="/pricing" component={PricingPage} />
-                <Route path="/login" component={LoginPage} />
-                <Route path="/register" component={RegisterPage} />
-                <PrivateRoute path="/dashboard" component={Dashboard} />
-                <PrivateRoute path="/resumes" exact component={ResumeList} />
-                <PrivateRoute path="/resumes/create" exact component={ResumeCreate} />
-            </main>
-            <Footer />
+    componentDidMount() {
+        console.log("HIHI");
+    }
 
-        </BrowserRouter>
+    componentDidUpdate() {
+        console.log("UPDATE!!");
+        console.log(this.props.isSignedIn);
+    }
 
+    render() {
+        return (
 
-    );
+            <BrowserRouter>
+                <Header />
+                <main>
+                    <Route path="/" exact component={HomePage} />
+                    <Route path="/features" component={FeaturePage} />
+                    <Route path="/pricing" component={PricingPage} />
+                    <Route path="/login" component={LoginPage} />
+                    <Route path="/register" component={RegisterPage} />
+                    <PrivateRoute path="/dashboard" exact component={Dashboard} isSignedIn={this.props.isSignedIn} />
+                    <PrivateRoute path="/resumes" exact component={ResumeList} isSignedIn={this.props.isSignedIn} />
+                    <PrivateRoute path="/resumes/create" exact component={ResumeCreate} isSignedIn={this.props.isSignedIn} />
+                </main>
+                <Footer />
+
+            </BrowserRouter>
+        );
+    }
 }
 
 //export default App;

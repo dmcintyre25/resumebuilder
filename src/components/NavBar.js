@@ -34,7 +34,7 @@ class NavBar extends React.Component {
             this.setState({ name: this.auth.currentUser.get().getBasicProfile().getName() });
         } else {
             this.props.signOut();
-            this.props.history.push("/");
+            //this.props.history.push("/");
         }
     };
 
